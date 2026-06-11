@@ -1,6 +1,6 @@
 ---
 name: write-a-skill
-description: Create new agent skills with proper structure, progressive disclosure, and bundled resources. Use when user wants to create, write, or build a new skill.
+description: 用合适的结构、渐进式披露（progressive disclosure）、以及打包好的资源来创建新的 agent skill。当用户想创建、编写或构建一个新 skill 时使用。
 ---
 
 # Writing Skills

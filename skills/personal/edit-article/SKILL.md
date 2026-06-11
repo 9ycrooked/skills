@@ -1,6 +1,6 @@
 ---
 name: edit-article
-description: Edit and improve articles by restructuring sections, improving clarity, and tightening prose. Use when user wants to edit, revise, or improve an article draft.
+description: 通过重组段落、提升清晰度、收紧文风来编辑和打磨文章。当用户想编辑、修改或改进文章草稿时使用。
 ---
 
 1. First, divide the article into sections based on its headings. Think about the main points you want to make during those sections.

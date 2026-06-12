@@ -1,7 +1,8 @@
 ---
 name: qa
-description: 一场交互式 QA 会话：用户以对话方式报 bug 或提问题，agent 在后台扫 codebase 拿上下文和领域语言，最后以 GitHub issue 形式归档。当用户要报 bug、做 QA、用对话方式提 issue、或提到 "QA session" 时使用。
+description: 交互式 QA 会话：用户以对话形式报告 bug 或问题，agent 代为创建 GitHub issue。同时在后台探索代码库以获取上下文和领域语言。适用于用户想报告 bug、做 QA、以对话方式提交 issue，或提及 "QA session" 的场景。
 ---
+
 
 # QA Session
 

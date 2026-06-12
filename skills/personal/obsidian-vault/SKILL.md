@@ -1,7 +1,8 @@
 ---
 name: obsidian-vault
-description: 在 Obsidian 库里搜索、创建、管理笔记，支持 wikilink 和 index 笔记。当用户想在 Obsidian 里找笔记、建笔记、整理笔记时使用。
+description: 在 Obsidian 仓库中搜索、创建和管理带有 wikilink 和索引笔记的笔记。用于用户希望在 Obsidian 中查找、创建或整理笔记的场景。
 ---
+
 
 # Obsidian Vault
 

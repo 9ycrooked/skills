@@ -1,7 +1,8 @@
 ---
 name: design-an-interface
-description: 用并行子 agent 为一个模块生成多种截然不同的接口设计。当用户想设计 API、探索接口选项、对比模块形态、或提到 "design it twice" 时使用。
+description: 使用并行子代理为一个模块生成多个截然不同的接口设计。用于用户想要设计 API、探索接口方案、比较模块形态，或提到 "design it twice" 时使用。
 ---
+
 
 # Design an Interface
 

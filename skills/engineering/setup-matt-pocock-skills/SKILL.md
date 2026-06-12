@@ -1,8 +1,9 @@
 ---
 name: setup-matt-pocock-skills
-description: 在 AGENTS.md/CLAUDE.md 里写一个 `## Agent skills` 区块，并在 `docs/agents/` 下放好脚手架，让工程类 skill 知道本仓库的 issue tracker（GitHub 或本地 markdown）、triage 标签词汇表、以及 domain 文档布局。在首次使用 `to-issues`、`to-prd`、`triage`、`diagnose`、`tdd`、`improve-codebase-architecture` 或 `zoom-out` 之前运行一次；或当这些 skill 看起来缺失关于 issue tracker、triage 标签、domain 文档的上下文时再跑一次。
+description: 在 AGENTS.md/CLAUDE.md 和 `docs/agents/` 中设置 `## Agent skills` 块，让工程类技能了解本仓库的问题追踪方式（GitHub 或本地 markdown）、triage 标签词汇表以及领域文档的结构安排。在首次使用 `to-issues`、`to-prd`、`triage`、`diagnose`、`tdd`、`improve-codebase-architecture` 或 `zoom-out` 之前运行——或者当这些技能似乎缺少关于问题追踪、triage 标签或领域文档的上下文时，也应运行本技能。
 disable-model-invocation: true
 ---
+
 
 # Setup Matt Pocock's Skills
 

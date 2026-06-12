@@ -1,7 +1,8 @@
 ---
 name: scaffold-exercises
-description: 创建带 sections、problems、solutions、explainers 的练习目录结构，且能通过 lint。当用户要脚手架练习、创建练习骨架、或搭建新课程 section 时使用。
+description: 按照通过 linting 检查的规范，创建包含 sections、problems、solutions 和 explainers 的练习目录结构。用于用户想要搭建练习框架、创建练习存根或建立新的课程章节时。
 ---
+
 
 # Scaffold Exercises
 

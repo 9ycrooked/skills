@@ -1,7 +1,8 @@
 ---
 name: git-guardrails-claude-code
-description: 给 Claude Code 配置 hook，在危险 git 命令（push、reset --hard、clean、branch -D 等）执行前拦下来。当用户想防止破坏性 git 操作、添加 git 安全 hook、或者在 Claude Code 里阻断 git push / reset 时使用。
+description: 配置 Claude Code 钩子，在 `push`、`reset --hard`、`clean`、`branch -D` 等危险 git 命令执行前予以拦截。适用于用户希望阻止破坏性 git 操作、添加 git 安全钩子，或在 Claude Code 中拦截 git push/reset 的场景。
 ---
+
 
 # Setup Git Guardrails
 

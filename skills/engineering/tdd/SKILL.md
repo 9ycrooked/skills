@@ -1,7 +1,8 @@
 ---
 name: tdd
-description: 用 red-green-refactor 循环做测试驱动开发。当用户要用 TDD 构建功能或修 bug、提到 "red-green-refactor"、想要集成测试、或要求 test-first 时使用。
+description: 使用 red-green-refactor 循环的测试驱动开发。适用于用户希望使用 TDD 构建功能或修复 bug、提到"red-green-refactor"、需要集成测试，或要求测试优先开发的情况。
 ---
+
 
 # Test-Driven Development
 

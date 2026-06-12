@@ -1,7 +1,8 @@
 ---
 name: improve-codebase-architecture
-description: 在 codebase 里找"加深模块"的机会，依据来自 CONTEXT.md 里的领域语言和 docs/adr/ 里的决策记录。当用户想改善架构、找重构点、合并紧耦合的模块、或让 codebase 更易测试、更利于 AI 导航时使用。
+description: 基于 `CONTEXT.md` 中的领域语言和 `docs/adr/` 中的决策，挖掘代码库中的纵深改进机会。当用户希望改进架构、寻找重构机会、整合紧耦合模块，或让代码库更易于测试和 AI 导航时使用。
 ---
+
 
 # Improve Codebase Architecture
 

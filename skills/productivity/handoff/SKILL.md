@@ -1,8 +1,9 @@
 ---
 name: handoff
-description: 把当前会话压缩成一份 handoff 文档，方便另一个 agent 接手。
-argument-hint: "What will the next session be used for?"
+description: 把当前对话压缩成一份交接文档，便于其他 agent 接手继续工作。
+argument-hint: What will the next session be used for?
 ---
+
 
 Write a handoff document summarising the current conversation so a fresh agent can continue the work. Save to the temporary directory of the user's OS - not the current workspace.
 

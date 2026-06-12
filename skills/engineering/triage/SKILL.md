@@ -1,7 +1,8 @@
 ---
 name: triage
-description: 用一个由 triage role 驱动的状态机来分流 issue。当用户要创建 issue、分流 issue、审阅新的 bug 或 feature 需求、为 AFK agent 准备 issue、或管理 issue 工作流时使用。
+description: 通过由 triage role 驱动的 state machine 来分流 issue。适用于以下场景：用户想要创建 issue、对 issue 进行 triage、审查新提交的 bug 或功能请求、为 AFK agent 准备 issue，或管理 issue 工作流。
 ---
+
 
 # Triage
 

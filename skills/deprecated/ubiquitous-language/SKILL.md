@@ -1,8 +1,9 @@
 ---
 name: ubiquitous-language
-description: 从当前会话中提取一份 DDD 风格的 ubiquitous language 词表，标出歧义点并给出标准术语建议，存到 UBIQUITOUS_LANGUAGE.md。当用户想定义领域术语、建词表、固化术语、创建 ubiquitous language、或提到 "domain model"、"DDD" 时使用。
+description: 从当前对话中提取 DDD 风格的 ubiquitous language 词汇表，标记歧义并提出规范术语。保存到 UBIQUITOUS_LANGUAGE.md。当用户想要定义领域术语、构建词汇表、强化术语、创建 ubiquitous language，或提及"domain model"或"DDD"时使用。
 disable-model-invocation: true
 ---
+
 
 # Ubiquitous Language
 

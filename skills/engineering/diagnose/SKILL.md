@@ -1,7 +1,8 @@
 ---
 name: diagnose
-description: 用纪律化的诊断循环处理棘手的 bug 和性能回归：复现 → 最小化 → 假设 → 插桩 → 修复 → 回归测试。当用户说 "diagnose this" / "debug this"、报 bug、说东西坏了 / 抛错 / 失败、或描述性能回归时使用。
+description: 用于排查棘手 bug 和性能回归的严谨诊断流程。复现 → 缩小范围 → 提出假设 → 插入观测 → 修复 → 回归测试。当用户说"diagnose this"/"debug this"、报告 bug、说某功能 broken/throwing/failing，或描述性能回归时使用。
 ---
+
 
 # Diagnose
 

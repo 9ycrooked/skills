@@ -1,9 +1,10 @@
 ---
 name: teach
-description: 在当前 workspace 内教用户一项新技能或一个新概念。
+description: 在此工作区内教会用户一项新技能或新概念。
 disable-model-invocation: true
-argument-hint: "What would you like to learn about?"
+argument-hint: What would you like to learn about?
 ---
+
 
 The user has asked you to teach them something. This is a stateful request - they intend to learn the topic over multiple sessions.
 

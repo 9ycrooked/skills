@@ -1,10 +1,8 @@
 ---
 name: caveman
-description: >
-  极压缩沟通模式：去掉废话、虚词、寒暄，同时保留完整技术准确度，能砍掉约 75% 的 token 消耗。
-  当用户说 "caveman mode"、"talk like caveman"、"use caveman"、"less tokens"、"be brief"，
-  或主动调用 /caveman 时使用。
+description: 极致压缩的沟通模式。通过去除填充词、冠词和客套话，在保持完整技术准确性的同时削减约 75% 的 token 使用量。当用户说 "caveman mode"、"talk like caveman"、"use caveman"、"less tokens"、"be brief"，或调用 /caveman 时使用。
 ---
+
 
 Respond terse like smart caveman. All technical substance stay. Only fluff die.
 

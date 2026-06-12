@@ -1,7 +1,8 @@
 ---
 name: review
-description: 从一个固定点（commit、branch、tag、merge-base）开始，沿着两个维度 review 改动 —— Standards（代码是否遵循本仓库已记录的编码规范？）和 Spec（代码是否实现当初 issue/PRD 的要求？）。两条 review 并行跑子 agent，最后并排报告。当用户要 review 一个 branch、PR、进行中的改动、或说 "review since X" 时使用。
+description: 自某个固定起点（commit、分支、tag 或 merge-base）起，沿两个维度审查变更——Standards（代码是否遵循本仓库文档化的编码规范？）和 Spec（代码是否与原始 issue/PRD 的要求一致？）。并行启动两个子智能体分别执行审查，并并排呈现结果。适用于用户希望审查某个分支、PR、进行中的变更，或要求"review since X"的场景。
 ---
+
 
 # Review
 

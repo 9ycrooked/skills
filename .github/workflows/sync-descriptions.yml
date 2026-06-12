@@ -36,10 +36,15 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout localize/descriptions-to-zh
+      - name: Checkout triggering branch
         uses: actions/checkout@v4
         with:
-          ref: localize/descriptions-to-zh
+          # When triggered by workflow_dispatch from main, this checks out main
+          # (which holds the workflow + the script). When triggered by the
+          # daily cron (which only fires on the default branch), the same.
+          # The script then runs `git checkout localize/descriptions-to-zh`
+          # itself before doing the translation work.
+          ref: ${{ github.ref_name }}
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 

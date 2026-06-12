@@ -44,6 +44,7 @@ import yaml
 
 UPSTREAM_REPO = os.environ.get("UPSTREAM_REPO", "mattpocock/skills")
 UPSTREAM_REF = "upstream/main"
+TARGET_BRANCH = os.environ.get("TARGET_BRANCH", "localize/descriptions-to-zh")
 SKILL_GLOB = "skills/**/SKILL.md"
 REPORT_DIR = Path("docs/sync-reports")
 CJK_PATTERN = re.compile(r"[\u4e00-\u9fff]")
@@ -89,6 +90,28 @@ def add_upstream_remote() -> None:
             f"https://github.com/{UPSTREAM_REPO}.git",
         ])
     shell(["git", "fetch", "upstream", "main"])
+
+
+def ensure_on_target_branch(target: str) -> None:
+    """Switch to the target branch if we are not already on it.
+
+    The workflow checks out the triggering ref (e.g. main for cron /
+    dispatch), but the translation work needs to land on
+    `localize/descriptions-to-zh`. Switching here means the same script
+    works whether you run it from a manual dispatch, a cron trigger, or
+    locally on any branch.
+    """
+    current = run(["git", "rev-parse", "--abbrev-ref", "HEAD"])
+    if current == target:
+        return
+    print(f"Switching from {current} to {target}")
+    # If the target branch has no local ref yet (e.g. first run after a
+    # fresh clone), create it tracking origin.
+    try:
+        run(["git", "show-ref", "--verify", f"refs/heads/{target}"])
+        shell(["git", "checkout", target])
+    except subprocess.CalledProcessError:
+        shell(["git", "checkout", "-b", target, f"origin/{target}"])
 
 
 def diff_files() -> list[str]:
@@ -317,6 +340,7 @@ def main(argv: list[str]) -> int:
     print(f"Using endpoint {base_url} model {model}")
 
     add_upstream_remote()
+    ensure_on_target_branch(TARGET_BRANCH)
     changed = diff_files()
     print(f"Found {len(changed)} SKILL.md file(s) differing from {UPSTREAM_REF}")
 

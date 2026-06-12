@@ -32,6 +32,9 @@ runs on a daily schedule and on manual dispatch. It:
      (already localized, prevents infinite loops).
    - Preserves all other frontmatter fields and the body of SKILL.md
      unchanged.
+   - Renders a side-by-side English/Chinese sync report at
+     `docs/sync-reports/<UTC-stamp>.md` and stages it alongside the
+     translated SKILL.md files, so each run is auditable in git history.
 4. Creates a single commit summarizing what was translated, and pushes
    to `localize/descriptions-to-zh` on origin.
 

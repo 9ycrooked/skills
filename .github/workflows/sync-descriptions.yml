@@ -1,0 +1,81 @@
+name: Sync upstream + translate descriptions
+
+# This workflow:
+#   1. Checks out localize/descriptions-to-zh on your fork.
+#   2. Pulls the latest main from mattpocock/skills.
+#   3. Translates any new or modified SKILL.md description to Chinese
+#      via the Anthropic SDK (configured for MiniMax by default).
+#   4. Commits and pushes the translations back to
+#      localize/descriptions-to-zh on your fork.
+#
+# Required secret:  ANTHROPIC_API_KEY
+# Optional vars:
+#   ANTHROPIC_BASE_URL   (default https://api.minimaxi.com/anthropic)
+#   ANTHROPIC_MODEL      (default MiniMax-M3)
+#   UPSTREAM_REPO        (default mattpocock/skills)
+
+on:
+  schedule:
+    # Daily at 06:00 UTC (14:00 Asia/Shanghai). Adjust to taste.
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Only diff and translate; do not commit or push."
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-descriptions
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout localize/descriptions-to-zh
+        uses: actions/checkout@v4
+        with:
+          ref: localize/descriptions-to-zh
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install anthropic pyyaml
+
+      - name: Configure git author
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Run translator
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ANTHROPIC_BASE_URL: ${{ vars.ANTHROPIC_BASE_URL }}
+          ANTHROPIC_MODEL: ${{ vars.ANTHROPIC_MODEL }}
+          UPSTREAM_REPO: ${{ vars.UPSTREAM_REPO }}
+        run: |
+          args=()
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            args+=(--dry-run)
+          fi
+          python scripts/sync_descriptions.py "${args[@]}"
+
+      - name: Push translations
+        if: ${{ inputs.dry_run != true }}
+        run: |
+          if git diff --cached --quiet && git diff --quiet; then
+            echo "No changes to push."
+            exit 0
+          fi
+          git push origin localize/descriptions-to-zh

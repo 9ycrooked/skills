@@ -105,12 +105,18 @@ def ensure_on_target_branch(target: str) -> None:
     if current == target:
         return
     print(f"Switching from {current} to {target}")
-    # If the target branch has no local ref yet (e.g. first run after a
-    # fresh clone), create it tracking origin.
-    try:
-        run(["git", "show-ref", "--verify", f"refs/heads/{target}"])
+    # Quietly test whether a local ref exists; `show-ref` writes nothing
+    # on success and exits 1 with no output on failure when stderr is
+    # suppressed. This avoids the noisy "fatal: ... not a valid ref"
+    # line that `git rev-parse --verify` would emit.
+    rc = subprocess.run(
+        ["git", "show-ref", "--verify", "--quiet", f"refs/heads/{target}"],
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    ).returncode
+    if rc == 0:
         shell(["git", "checkout", target])
-    except subprocess.CalledProcessError:
+    else:
         shell(["git", "checkout", "-b", target, f"origin/{target}"])
 
 
@@ -322,6 +328,8 @@ def commit_if_dirty(message: str, dry_run: bool) -> None:
         shell(["git", "diff", "--cached", "--stat"])
         return
     shell(["git", "commit", "-m", message])
+    new_hash = run(["git", "rev-parse", "--short", "HEAD"])
+    print(f"Created commit {new_hash}")
 
 
 def main(argv: list[str]) -> int:

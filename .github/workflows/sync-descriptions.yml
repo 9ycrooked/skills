@@ -81,9 +81,26 @@ jobs:
 
       - name: Push translations
         if: ${{ inputs.dry_run != true }}
+        # The translator script commits any work it did and then exits
+        # with code 0 regardless of whether it actually wrote anything
+        # (a no-op run is also a valid run, e.g. a "no changes" report).
+        # The earlier `git diff --cached --quiet && git diff --quiet` guard
+        # here was wrong: after `git commit`, both diffs are empty, so
+        # the guard always fired and the push never ran. Compare HEAD to
+        # the upstream tracking ref instead, so we only push when there
+        # really is a new commit waiting to go out.
         run: |
-          if git diff --cached --quiet && git diff --quiet; then
-            echo "No changes to push."
-            exit 0
+          UPSTREAM_REF="origin/${TARGET_BRANCH:-localize/descriptions-to-zh}"
+          if git rev-parse --verify "$UPSTREAM_REF" >/dev/null 2>&1; then
+            if git rev-parse --verify HEAD >/dev/null 2>&1 \
+               && [ "$(git rev-parse HEAD)" = "$(git rev-parse "$UPSTREAM_REF")" ]; then
+              echo "HEAD matches $UPSTREAM_REF, nothing to push."
+              exit 0
+            fi
           fi
-          git push origin localize/descriptions-to-zh
+          # Either the upstream ref does not exist yet (first run) or
+          # HEAD has moved past it. In both cases we attempt the push.
+          # If there genuinely are no commits to push (e.g. the script
+          # bailed out before committing), `git push` will fail with a
+          # useful error rather than silently skipping.
+          git push origin "${TARGET_BRANCH:-localize/descriptions-to-zh}"

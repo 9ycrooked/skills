@@ -42,9 +42,9 @@ from typing import Optional
 import anthropic
 import yaml
 
-UPSTREAM_REPO = os.environ.get("UPSTREAM_REPO", "mattpocock/skills")
+UPSTREAM_REPO = os.environ.get("UPSTREAM_REPO") or "mattpocock/skills"
 UPSTREAM_REF = "upstream/main"
-TARGET_BRANCH = os.environ.get("TARGET_BRANCH", "localize/descriptions-to-zh")
+TARGET_BRANCH = os.environ.get("TARGET_BRANCH") or "localize/descriptions-to-zh"
 SKILL_GLOB = "skills/**/SKILL.md"
 REPORT_DIR = Path("docs/sync-reports")
 CJK_PATTERN = re.compile(r"[\u4e00-\u9fff]")
@@ -333,8 +333,8 @@ def main(argv: list[str]) -> int:
     if not api_key:
         print("ANTHROPIC_API_KEY env var is required", file=sys.stderr)
         return 1
-    base_url = os.environ.get("ANTHROPIC_BASE_URL", DEFAULT_BASE_URL)
-    model = os.environ.get("ANTHROPIC_MODEL", DEFAULT_MODEL)
+    base_url = os.environ.get("ANTHROPIC_BASE_URL") or DEFAULT_BASE_URL
+    model = os.environ.get("ANTHROPIC_MODEL") or DEFAULT_MODEL
 
     client = anthropic.Anthropic(base_url=base_url, api_key=api_key)
     print(f"Using endpoint {base_url} model {model}")

@@ -66,9 +66,12 @@ jobs:
       - name: Run translator
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          ANTHROPIC_BASE_URL: ${{ vars.ANTHROPIC_BASE_URL }}
-          ANTHROPIC_MODEL: ${{ vars.ANTHROPIC_MODEL }}
-          UPSTREAM_REPO: ${{ vars.UPSTREAM_REPO }}
+          # Provide explicit defaults so unset variables don't expand to
+          # empty strings, which the script would forward to git/LLM calls
+          # as broken values (e.g. https://github.com/.git/).
+          ANTHROPIC_BASE_URL: ${{ vars.ANTHROPIC_BASE_URL || 'https://api.minimaxi.com/anthropic' }}
+          ANTHROPIC_MODEL: ${{ vars.ANTHROPIC_MODEL || 'MiniMax-M3' }}
+          UPSTREAM_REPO: ${{ vars.UPSTREAM_REPO || 'mattpocock/skills' }}
         run: |
           args=()
           if [ "${{ inputs.dry_run }}" = "true" ]; then

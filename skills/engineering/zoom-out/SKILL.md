@@ -1,6 +1,6 @@
 ---
 name: zoom-out
-description: 让智能体退后一步，给出更广的上下文或更高层的视角。适用于你不熟悉某段代码，或需要理解它在整体中的位置时。
+description: 让智能体拉远视角，提供更宏观的上下文或更高层次的视角。在你不熟悉某段代码，或需要理解它如何融入整体架构时使用。
 disable-model-invocation: true
 ---
 

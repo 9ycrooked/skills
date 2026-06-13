@@ -1,6 +1,6 @@
 ---
 name: write-a-skill
-description: 按照正确的结构、progressive disclosure 和打包资源来创建新的 agent skill。当用户想要创建、编写或构建新 skill 时使用。
+description: 按照正确的结构、渐进式披露原则和资源捆绑方式创建新的 agent skill。当用户想要创建、编写或构建新的 skill 时使用。
 ---
 
 

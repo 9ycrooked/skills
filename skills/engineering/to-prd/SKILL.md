@@ -1,6 +1,6 @@
 ---
 name: to-prd
-description: 把当前对话上下文整理成 PRD 并发布到项目 issue 跟踪系统。适用于用户希望基于当前上下文创建 PRD 的场景。
+description: 将当前对话上下文转化为 PRD 并发布到项目 issue 跟踪系统中。当用户希望基于当前上下文创建 PRD 时使用。
 ---
 
 

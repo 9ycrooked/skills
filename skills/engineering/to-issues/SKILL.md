@@ -1,6 +1,6 @@
 ---
 name: to-issues
-description: 把计划、规范或 PRD 按照 tracer-bullet 纵向切片拆解成可在项目 issue 跟踪系统中独立领取的任务。当用户希望将计划转化为 issue、创建实现工单，或把工作拆分成 issue 时使用。
+description: 将计划、规范或 PRD 使用 tracer bullet 纵向切片拆分为项目 issue 跟踪器中可独立领取的 issue。当用户希望将计划转为 issue、创建实施工单，或将工作拆解为 issue 时使用。
 ---
 
 

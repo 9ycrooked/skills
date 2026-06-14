@@ -1,6 +1,6 @@
 ---
 name: prototype
-description: 在正式动手实现前，先搭一个用完即弃的原型把设计跑通。提供两条路径：一条是可在终端运行的应用，用来回答状态/业务逻辑层面的问题；另一条是同一个路由下可切换的几种风格迥异的 UI 变体，用来对比设计。适用于用户想要做原型、检验数据模型或 state machine、Mock UI、探索设计方案，或者说出 "prototype this"、"let me play with it"、"try a few designs" 这类话的场景。
+description: 写一个一次性原型，在正式动手前把设计思路跑通。可在两条路径间切换：需要厘清 state machine 或业务逻辑时，就做一个能在终端跑起来的应用；需要探索 UI 方向时，就在同一个路由下挂几套差异极大的 UI 变体随时切换。适用于用户想要做原型、验证数据模型或 state machine 是否合理、mock 界面、探索设计方案，或是说出"prototype this"、"let me play with it"、"try a few designs"之类的话时。
 ---
 
 

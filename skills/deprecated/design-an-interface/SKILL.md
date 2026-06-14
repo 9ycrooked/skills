@@ -1,6 +1,6 @@
 ---
 name: design-an-interface
-description: 使用并行子智能体为一个模块生成多个截然不同的接口设计方案。用于用户想要设计 API、探索接口选项、比较模块形态，或提及"design it twice"的场景。
+description: 使用并行的子智能体为一个模块生成多个截然不同的接口设计方案。当用户想要设计 API、探索接口选项、比较模块形态，或提到 "design it twice" 时使用。
 ---
 
 

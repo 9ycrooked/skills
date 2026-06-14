@@ -1,6 +1,6 @@
 ---
 name: triage
-description: 通过由 triage role 驱动的 state machine 来 triage 议题。适用于用户想要创建议题、triage 议题、审阅待处理的 bug 或功能请求、为 AFK agent 准备议题，或管理议题工作流的场景。
+description: 通过由 triage role 驱动的 state machine 来分类处理 issue。适用于用户想要创建 issue、分类 issue、审查收到的 bug 或功能请求、为 AFK agent 准备 issue，或管理 issue 工作流的情况。
 ---
 
 

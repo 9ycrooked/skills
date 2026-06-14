@@ -1,6 +1,6 @@
 ---
 name: request-refactor-plan
-description: 通过用户访谈制定一份详细的重构计划，包含细粒度的提交，然后将其作为 GitHub issue 归档。在用户希望规划一次重构、撰写重构 RFC，或将一次重构拆解为安全的增量步骤时使用。
+description: 通过用户访谈制定一个包含小颗粒提交的详细重构计划，然后将其作为 GitHub issue 提交。在用户希望规划重构、创建重构 RFC，或将重构拆分为安全的增量步骤时使用。
 ---
 
 

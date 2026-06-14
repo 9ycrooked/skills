@@ -1,6 +1,6 @@
 ---
 name: handoff
-description: 将当前对话压缩成一份交接文档，方便其他 agent 接手继续处理。
+description: 将当前对话压缩为交接文档，方便其他 agent 接续处理。
 argument-hint: What will the next session be used for?
 ---
 
